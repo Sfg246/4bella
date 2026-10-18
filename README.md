@@ -1,35 +1,42 @@
-# for bella ✳
+# for bella ♡
 
-A tiny corner of the internet made for Bella, just because.
+A tiny, butter-yellow corner of the internet, made by Andrew for his close friend Bella.
 
-This is a warm, playful encouragement site from Andrew to a close friend. Its goal is to remind her that she matters, that she has potential, and that someone is genuinely in her corner. It's intentionally **friendship-first**, not a romantic landing page.
+This is a **five-page interactive story** rather than a long scrolling landing page. It is a thoughtful friendship gift, not a romantic confession. The writing is deliberately gentle about personal experiences: it leaves private details private while offering support, understanding, and a bit of teasing.
 
-## What's inside
-- A handwritten-style personal letter
-- A little flower illustration and a butter-yellow palette built around Bella's favorite color, `#fefeca`
-- Three reminders of her worth
-- A nine-note encouragement dispenser with copy-to-clipboard
-- Four selectable notes for different moods, including a lighthearted one
-- A hidden message and a little teasing at the end
+## Five little chapters
 
-The site is plain HTML, CSS, and JavaScript. No build tools, frameworks, analytics, cookies, logins, or forms are needed. Responsive layout, keyboard access, and reduced-motion support are included.
+| Page | What it does |
+| --- | --- |
+| `index.html` | A cute envelope invitation. Tap the envelope to open the next page, or reveal a little joke. |
+| `letter.html` | A heartfelt personal letter from Andrew, with a stationery-card design. |
+| `comfort.html` | Four selectable messages for overwhelming days, resurfacing past feelings, self-doubt, or needing a smile. |
+| `reasons.html` | Four interactive flip-over cards describing things worth remembering about Bella. |
+| `forever.html` | A final message, illustrated flowers, a hidden extra note, and a virtual hug button. |
 
-## Publish with GitHub Pages
+Visuals use Bella's favorite shade **`#fefeca`**, plus sage, peach, rose and lavender. The site has scrapbook-style stickers, paper, an envelope, flowers and gentle transitions.
 
-This repository starts as a new, empty GitHub project. To make the site available at a shareable public URL, enable GitHub Pages once:
+## Project files
 
-1. Open **Settings → Pages** in this repository.
-2. Under **Build and deployment**, choose **Deploy from a branch**.
-3. Select **main** and **/(root)**, then click **Save**.
-4. After GitHub publishes, the website should be available at:
-   **https://sfg246.github.io/4bella/**
+- `style.css`: all page layouts, animations, and mobile/responsive styling.
+- `site.js`: navigation transitions and interactive buttons/cards. All content is local, with no backend.
+- `favicon.svg`: custom yellow favicon.
+- Each `.html` file is its own page with a shared chapter navigation.
 
-All future edits to `index.html` on `main` will be reflected on the published site.
+There are no analytics, forms, tracking, cookies, or messages sent to Andrew. The website does not collect anything from Bella. No build tools or frameworks are needed.
 
-## Editing
-- `index.html`: the full page, its styling, the letter, reminder text, mood messages, and interactions.
-- `favicon.svg`: the custom butter-yellow favicon.
+## Publishing with GitHub Pages
 
-The page does not send messages, store responses, or collect any personal data.
+To publish on GitHub Pages, open [Settings → Pages](https://github.com/Sfg246/4bella/settings/pages), choose **Deploy from a branch**, select `main` and `/(root)`, then save.
 
-Made for Bella by Andrew.
+Once publication completes, the site is intended to be available at:
+
+**https://sfg246.github.io/4bella/**
+
+The HTML files use relative links, so all five pages can be visited from the published site.
+
+## Notes
+
+The linked Google Fonts are optional; system and Georgia fallbacks are in place if the font service is unavailable. Animations respect the operating system's reduced-motion setting. All controls are regular links or buttons, including flip cards, so they are keyboard-accessible.
+
+Made for Bella, just because. ✿
