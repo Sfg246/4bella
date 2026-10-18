@@ -1,394 +1,50 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#fefeca">
-  <meta name="description" content="A little reminder for Bella, from a friend who sees so much good in her.">
-  <meta property="og:title" content="For Bella | A little reminder">
-  <meta property="og:description" content="On the days you forget how much you matter, here's somewhere to come back to.">
-  <meta property="og:type" content="website">
-  <title>for bella, just because ✳</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&family=Caveat:wght@500;600;700&display=swap');
-    :root{
-      --yellow:#fefeca;--ink:#273c30;--deep:#183328;--muted:#647267;--sage:#c7d8bd;
-      --mint:#e8efdf;--paper:#fffdf5;--pink:#f4dbd0;--lavender:#e7e0f1;
-      --orange:#d99763;--border:rgba(39,60,48,.17);--shadow:0 22px 70px rgba(39,60,48,.12)
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-    button,a{font:inherit}button{cursor:pointer}
-    a{color:inherit}button:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:3px solid #a96c2a;outline-offset:4px}
-    ::selection{background:#e0ddb5;color:var(--deep)}
-    .container{width:min(1180px,calc(100% - 56px));margin:auto}
-    .smallcaps{font-size:.73rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase}
-    .serif{font-family:"DM Serif Display",Georgia,serif;font-weight:400}
-    .scribble{font-family:"Caveat",cursive;font-size:1.55rem;line-height:1.1}
-    .topbar{position:relative;z-index:10;background:var(--yellow);border-bottom:1px solid var(--border)}
-    .nav{min-height:80px;display:flex;justify-content:space-between;align-items:center;gap:20px}
-    .logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-size:.89rem;font-weight:800;letter-spacing:.03em}
-    .logo-icon{display:grid;place-items:center;font-size:1.35rem;width:38px;height:38px;background:var(--deep);border-radius:50%;color:var(--yellow);transform:rotate(-14deg)}
-    .top-note{color:var(--muted);font-size:.82rem}
-    .navlink{border:1px solid var(--ink);border-radius:99px;padding:11px 18px;text-decoration:none;font-size:.8rem;font-weight:800;transition:background .2s,color .2s,transform .2s;white-space:nowrap}
-    .navlink:hover{background:var(--ink);color:var(--yellow);transform:translateY(-2px)}
-    .hero{position:relative;background:var(--yellow);overflow:hidden}
-    .hero:before{content:"";position:absolute;inset:0;opacity:.28;background-image:radial-gradient(#a3ab80 0.7px,transparent 0.7px);background-size:22px 22px;pointer-events:none}
-    .hero-layout{position:relative;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:34px;min-height:665px;padding:80px 0 102px}
-    .hero-copy{position:relative;z-index:2;max-width:680px}
-    .eyebrow{display:inline-flex;align-items:center;gap:10px;padding:8px 14px;border:1px solid rgba(39,60,48,.17);background:rgba(255,255,255,.35);border-radius:90px;color:#48624b;margin-bottom:24px}
-    .eyebrow-dot{width:8px;height:8px;border-radius:50%;background:var(--orange)}
-    h1{font-size:clamp(4.1rem,8.1vw,7.7rem);letter-spacing:-.048em;line-height:.99;margin:0 0 26px;color:var(--deep)}
-    h1 em{position:relative;display:inline-block;font-style:italic;font-weight:400;color:#627b56;white-space:nowrap}
-    h1 em:after{content:"";position:absolute;bottom:-6px;left:4%;width:93%;height:9px;border-top:3px solid #d89d6b;border-radius:60%;transform:rotate(-3deg)}
-    .hero-copy>p{max-width:525px;font-size:1.08rem;line-height:1.9;color:#4c604d;margin:0 0 29px}
-    .hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px}
-    .btn{border:1px solid transparent;padding:15px 21px;border-radius:100px;font-weight:800;font-size:.89rem;transition:transform .2s,background .2s,box-shadow .2s;display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none}
-    .btn:hover{transform:translateY(-3px)}
-    .btn-dark{background:var(--deep);color:var(--paper);box-shadow:0 10px 26px rgba(24,51,40,.2)}
-    .btn-dark:hover{background:#355747}
-    .btn-outline{background:transparent;color:var(--deep);border-color:rgba(39,60,48,.38)}
-    .btn-outline:hover{background:rgba(255,255,255,.35)}
-    .hero-foot{margin-top:32px;display:flex;align-items:center;gap:13px;color:#74816b;font-size:.81rem}
-    .hero-foot .dash{width:35px;height:1px;background:#84987c}
-    .art{position:relative;width:min(100%,485px);aspect-ratio:1/1.06;margin:0 auto;filter:drop-shadow(0 25px 28px rgba(71,78,45,.12))}
-    .art-back{position:absolute;inset:11% 12% 7% 4%;background:#d5e1ca;border:1px solid rgba(39,60,48,.18);border-radius:8px;transform:rotate(9deg)}
-    .art-main{position:absolute;inset:3% 5% 10% 10%;background:var(--paper);border:1px solid rgba(39,60,48,.11);box-shadow:0 12px 26px rgba(29,46,31,.1);transform:rotate(-5deg);display:flex;align-items:center;justify-content:center;flex-direction:column;padding:24px}
-    .art-main:before{content:"";position:absolute;inset:16px;border:1px solid #e7e8db;pointer-events:none}
-    .art-heading{font-size:.67rem;letter-spacing:.2em;font-weight:800;color:#819180;transform:rotate(2deg)}
-    .art-plant{width:82%;max-width:280px;aspect-ratio:1/1;margin:13px 0 5px}
-    .art-main p{font-family:"DM Serif Display",Georgia,serif;font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.12;text-align:center;max-width:280px;margin:0;color:var(--deep)}
-    .art-main p em{color:#698b5c}
-    .art-hand{position:absolute;right:-11%;bottom:3%;background:var(--pink);border:1px solid rgba(39,60,48,.16);border-radius:2px;padding:12px 22px;transform:rotate(10deg);z-index:3;box-shadow:0 12px 20px rgba(39,60,48,.1);font-size:1.55rem;color:#815b53}
-    .tape{position:absolute;z-index:3;background:#e7dba5;opacity:.88;width:100px;height:30px;left:37%;top:0;transform:rotate(8deg)}
-    .hero-wave{position:absolute;width:120%;height:90px;left:-10%;bottom:-60px;background:var(--paper);border-radius:50% 50% 0 0/48% 40% 0 0;transform:rotate(-1deg)}
-    .mini-mark{position:absolute;font-family:"Caveat",cursive;font-size:1.45rem;color:#708964;bottom:78px;left:1%;transform:rotate(-10deg)}
-    .section{padding:105px 0}
-    .section-label{display:flex;align-items:center;gap:12px;color:#71826a;margin-bottom:17px}
-    .section-label:before{content:"";height:1px;width:31px;background:#b3c1ab}
-    h2{font-family:"DM Serif Display",Georgia,serif;font-size:clamp(2.75rem,5.2vw,4.5rem);font-weight:400;line-height:1.12;letter-spacing:-.025em;margin:0}
-    .section-lead{font-size:1.02rem;color:var(--muted);line-height:1.85;max-width:630px}
-    .letter-section{background:var(--paper);padding-top:118px}
-    .letter-layout{display:grid;grid-template-columns:.65fr 1.35fr;gap:72px;align-items:start}
-    .letter-side{padding-top:27px;position:sticky;top:35px}
-    .letter-side h2{max-width:355px}
-    .little-flower{width:120px;height:120px;margin-top:30px;transform:rotate(-12deg);opacity:.8}
-    .letter-card{position:relative;background:#fffefa;padding:55px 60px 51px;border:1px solid #ebe6d4;box-shadow:6px 9px 0 #f0e8d4,0 24px 55px rgba(68,65,44,.08);transform:rotate(.4deg)}
-    .letter-card:before{content:"";position:absolute;top:0;bottom:0;left:38px;border-left:1px solid #f5d2c4;opacity:.7}
-    .letter-top{display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:1px solid #e6e1d4;padding-bottom:21px;margin-bottom:26px;color:#89907d}
-    .letter-card h3{font-family:"Caveat",cursive;font-size:2.8rem;font-weight:600;line-height:1.1;margin:0 0 20px;color:#536d4a}
-    .letter-body p{font-size:1.035rem;line-height:2;color:#455348;margin:0 0 19px}
-    .letter-body strong{color:var(--deep);font-weight:800}
-    .letter-sign{margin-top:30px;text-align:right;font-family:"Caveat",cursive;font-size:2.3rem;color:#506f51;transform:rotate(-4deg)}
-    .letter-star{position:absolute;right:-16px;top:-20px;background:var(--lavender);border:1px solid #c9becf;border-radius:50%;padding:13px 15px;transform:rotate(16deg);color:#78638c;font-size:1.25rem}
-    .reasons{background:var(--mint);border-top:1px solid #d9e5d4;border-bottom:1px solid #d9e5d4}
-    .centered{text-align:center}
-    .centered .section-label{justify-content:center}
-    .centered .section-lead{margin:19px auto 0}
-    .reason-grid{margin-top:53px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .reason-card{background:var(--paper);padding:33px 30px 34px;border:1px solid #d8e2d0;border-radius:10px;min-height:300px;position:relative;box-shadow:0 12px 22px rgba(42,65,40,.04);transition:transform .25s,box-shadow .25s}
-    .reason-card:nth-child(2){transform:translateY(13px);background:var(--yellow)}
-    .reason-card:hover{transform:translateY(-7px);box-shadow:0 18px 35px rgba(42,65,40,.12)}
-    .reason-card:nth-child(2):hover{transform:translateY(5px)}
-    .reason-num{display:inline-flex;width:46px;height:46px;border:1px solid var(--border);border-radius:50%;align-items:center;justify-content:center;font-family:"DM Serif Display",Georgia,serif;font-size:1.35rem}
-    .reason-card h3{font-family:"DM Serif Display",Georgia,serif;font-weight:400;line-height:1.18;font-size:1.85rem;margin:31px 0 13px}
-    .reason-card p{line-height:1.8;color:#647165;margin:0;font-size:.96rem}
-    .reason-sparkle{position:absolute;right:27px;top:30px;color:#cda471;font-size:1.6rem}
-    .desk{background:var(--paper)}
-    .desk-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:74px;align-items:center}
-    .desk h2{max-width:440px}
-    .desk .section-lead{margin:22px 0}
-    .desk-note{color:#76836e;font-family:"Caveat",cursive;font-size:1.45rem;margin-top:22px;transform:rotate(-3deg);display:inline-block}
-    .note-machine{position:relative;padding:39px 35px 32px;min-height:420px;background:#f4e9d5;border:1px solid #ddd0bb;border-radius:15px;box-shadow:15px 18px 0 #e7dcc9}
-    .note-machine:before{content:"";position:absolute;inset:12px;border:1px dashed #d4c3a7;border-radius:8px;pointer-events:none}
-    .machine-label{display:flex;justify-content:space-between;gap:20px;color:#90806d}
-    .paper-note{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:258px;max-width:420px;margin:29px auto 22px;padding:40px 30px;background:var(--yellow);border:1px solid #e3dfac;box-shadow:0 11px 21px rgba(94,80,52,.14);transform:rotate(-3deg);text-align:center}
-    .paper-note:before{content:"";position:absolute;top:-14px;left:40%;width:82px;height:27px;background:#f0d9a7;opacity:.75;transform:rotate(4deg)}
-    .paper-note .note-top{color:#87937b;font-family:"Caveat",cursive;font-size:1.4rem}
-    .paper-note .note-text{font-family:"DM Serif Display",Georgia,serif;font-size:clamp(1.55rem,2.5vw,2rem);line-height:1.35;margin:18px 0 15px;color:var(--deep)}
-    .paper-note .note-bottom{font-size:.7rem;letter-spacing:.16em;color:#87937b}
-    .paper-note.new{animation:paperIn .45s cubic-bezier(.2,.8,.2,1)}
-    @keyframes paperIn{0%{transform:translateY(24px) rotate(1deg);opacity:.1}100%{transform:translateY(0) rotate(-3deg);opacity:1}}
-    .note-actions{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px;position:relative;z-index:1}
-    .note-actions .btn{padding:13px 16px}
-    .copy-btn{background:transparent;border:1px solid #c8b69b;color:var(--deep);border-radius:100px;padding:13px 15px;font-weight:800;font-size:.85rem}
-    .copy-btn:hover{background:#fff8e9}
-    .moods{background:#f7f6ed}
-    .moods-layout{display:grid;grid-template-columns:1fr 1fr;gap:75px;align-items:center}
-    .mood-tabs{display:flex;flex-wrap:wrap;gap:9px;margin-top:31px}
-    .mood-tab{border:1px solid #ced6c5;background:transparent;color:#4c6250;padding:12px 15px;border-radius:100px;font-size:.82rem;font-weight:800;transition:background .2s,transform .2s}
-    .mood-tab[aria-selected="true"]{background:var(--deep);color:#fff;border-color:var(--deep)}
-    .mood-tab:hover{transform:translateY(-2px)}
-    .mood-card{position:relative;min-height:360px;display:flex;flex-direction:column;justify-content:center;background:#fffefa;border-radius:12px;border:1px solid #dce1d4;box-shadow:0 15px 40px rgba(39,60,48,.07);padding:44px 46px}
-    .mood-card:after{content:"✳";position:absolute;bottom:24px;right:30px;font-size:3.1rem;color:#d6ddc7;line-height:1}
-    .mood-card .smallcaps{color:#9c9c80}
-    .mood-quote{font-family:"DM Serif Display",Georgia,serif;line-height:1.33;font-size:clamp(1.65rem,3vw,2.35rem);margin:22px 0;color:var(--deep)}
-    .mood-after{color:#7b8977;line-height:1.7;margin:0;max-width:390px;font-size:.88rem}
-    .mood-card.swap .mood-quote{animation:quoteIn .35s ease}
-    @keyframes quoteIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-    .ending{position:relative;background:var(--deep);color:var(--paper);text-align:center;padding:117px 0 83px;overflow:hidden}
-    .ending:before,.ending:after{content:"✳";position:absolute;font-size:17rem;color:rgba(254,254,202,.07);line-height:1}
-    .ending:before{left:-80px;top:12px}.ending:after{right:-70px;bottom:-95px}
-    .ending-inner{position:relative;z-index:1;max-width:780px}
-    .ending .smallcaps{color:#c3d2b6}
-    .ending h2{font-size:clamp(3.6rem,7vw,6.1rem);line-height:1.08;margin:22px 0;color:var(--yellow)}
-    .ending h2 em{font-weight:400;color:#cadbbb}
-    .ending p{max-width:540px;margin:0 auto;color:#d6e0d1;line-height:1.85;font-size:1rem}
-    .secret-btn{margin-top:35px;background:var(--yellow);color:var(--deep);border:1px solid var(--yellow);border-radius:100px;padding:14px 23px;font-weight:800;transition:transform .2s,background .2s}
-    .secret-btn:hover{transform:translateY(-3px);background:#fffde9}
-    .secret{max-width:570px;margin:21px auto 0;padding:23px 25px;background:rgba(255,255,255,.09);border:1px solid rgba(254,254,202,.26);border-radius:10px;color:#fffde4;line-height:1.75}
-    .secret[hidden]{display:none}
-    .footer{background:var(--deep);border-top:1px solid rgba(254,254,202,.13);color:#b9c7b6;text-align:center;padding:22px 24px 26px;font-size:.8rem}
-    .footer strong{color:#fefeca}
-    .toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,15px);max-width:calc(100vw - 32px);padding:12px 18px;background:var(--deep);color:white;border-radius:90px;box-shadow:var(--shadow);font-size:.88rem;font-weight:700;z-index:50;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;text-align:center}
-    .toast.show{opacity:1;transform:translate(-50%,0)}
-    @media(max-width:990px){.hero-layout{grid-template-columns:1fr .8fr;gap:10px;min-height:590px}.art-hand{right:-4%}.letter-layout{gap:30px}.letter-card{padding:44px 45px}.desk-layout{gap:35px}.moods-layout{gap:38px}}
-    @media(max-width:760px){
-      .container{width:min(100% - 34px,580px)}.nav{min-height:70px}.top-note{display:none}.navlink{font-size:.76rem;padding:10px 13px}
-      .hero-layout{grid-template-columns:1fr;min-height:0;padding:62px 0 94px;gap:20px}.hero-copy{text-align:center}.hero-copy>p{margin:0 auto 27px;font-size:1rem}.eyebrow{margin-bottom:21px}h1{font-size:clamp(3.7rem,12vw,6rem)}.hero-actions{justify-content:center}.hero-foot{justify-content:center;margin-top:24px}
-      .art{width:min(80%,355px);margin:30px auto 0}.art-hand{right:-9%;font-size:1.32rem}.mini-mark{display:none}
-      .section{padding:78px 0}.letter-section{padding-top:75px}.letter-layout,.desk-layout,.moods-layout{grid-template-columns:1fr;gap:32px}.letter-side{position:static;padding:0}.letter-side .section-lead{max-width:520px}.little-flower{display:none}
-      .letter-card{padding:37px 31px}.letter-card:before{left:17px}.letter-card h3{font-size:2.4rem}.letter-body p{font-size:.97rem;line-height:1.85}
-      .reason-grid{grid-template-columns:1fr;gap:15px;margin-top:36px}.reason-card,.reason-card:nth-child(2){transform:none;min-height:auto;padding:26px}.reason-card:nth-child(2):hover{transform:translateY(-7px)}.reason-card h3{margin-top:22px}.note-machine{padding:30px 22px;min-height:auto}.paper-note{min-height:247px;margin:27px auto 22px}.moods-layout{gap:29px}.mood-card{min-height:300px;padding:37px 32px}
-      .ending{padding:85px 0 66px}
-    }
-    @media(max-width:400px){.logo{font-size:.8rem}.logo-icon{width:34px;height:34px}.container{width:calc(100% - 30px)}.hero-actions .btn{width:100%}.art{width:88%}.letter-card{padding:34px 25px}.letter-top{font-size:.66rem}.note-machine{padding:26px 13px}.paper-note{padding:34px 20px}.mood-tab{font-size:.75rem;padding:11px 12px}}
-    @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
-  </style>
-  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fefeca">
+<meta name="description" content="A little something made for Bella. Five little reminders that she's valued, supported, and has so much ahead of her.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="for bella, just because ♡">
+<meta property="og:description" content="I hope you see yourself the way I see you. A little something from Andrew.">
+<title>hey bella, i made you something ♡</title>
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<link rel="stylesheet" href="./style.css">
+<script src="./site.js" defer></script>
 </head>
-<body>
-  <header class="topbar">
-    <nav class="nav container" aria-label="Main navigation">
-      <a class="logo" href="#top" aria-label="For Bella, back to top"><span class="logo-icon" aria-hidden="true">✳</span> a little something for bella</a>
-      <span class="top-note">made with a lot of thought (and some questionable jokes)</span>
-      <a class="navlink" href="#letter">open your letter ↗</a>
-    </nav>
-  </header>
-  <main id="top">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="container hero-layout">
-        <div class="hero-copy">
-          <div class="eyebrow smallcaps"><span class="eyebrow-dot"></span> a reminder, just for you</div>
-          <h1 id="hero-title">hey, bella.<br>you're worth<br><em>so much.</em></h1>
-          <p>And I don't mean that in some cheesy motivational-poster way. I mean I genuinely see so much good in you. Maybe more than you give yourself credit for.</p>
-          <div class="hero-actions">
-            <a class="btn btn-dark" href="#letter">I made you something <span aria-hidden="true">↗</span></a>
-            <a class="btn btn-outline" href="#reminders">I need a reminder <span aria-hidden="true">✳</span></a>
-          </div>
-          <div class="hero-foot"><span class="dash"></span> from andrew, just because <span class="dash"></span></div>
-        </div>
-        <div class="art" aria-label="Illustrated paper note with a flower and the words: you have so much good ahead of you" role="img">
-          <div class="art-back"></div>
-          <div class="art-main">
-            <div class="art-heading">A NOTE TO REMEMBER</div>
-            <svg class="art-plant" viewBox="0 0 280 280" aria-hidden="true">
-              <path d="M138 237c-1-55 4-108 0-143" stroke="#6d8d64" stroke-width="5" stroke-linecap="round" fill="none"/>
-              <path d="M137 197C99 171 79 178 76 166c26-9 45-4 61 15M141 179c30-30 48-20 57-35-29-3-43 7-57 24" fill="#a9c398" stroke="#648c66" stroke-width="2"/>
-              <g transform="translate(139 88)">
-                <g fill="#fae5a3" stroke="#bf9f57" stroke-width="1.5">
-                  <ellipse cy="-43" rx="21" ry="38"/><ellipse cy="43" rx="21" ry="38"/>
-                  <ellipse cx="-43" rx="38" ry="21"/><ellipse cx="43" rx="38" ry="21"/>
-                  <ellipse transform="rotate(45)" cy="-43" rx="21" ry="38"/><ellipse transform="rotate(45)" cy="43" rx="21" ry="38"/>
-                  <ellipse transform="rotate(-45)" cy="-43" rx="21" ry="38"/><ellipse transform="rotate(-45)" cy="43" rx="21" ry="38"/>
-                </g>
-                <circle r="28" fill="#ad7846"/><circle r="21" fill="#d99b58"/>
-                <g fill="#8d683b"><circle cx="-9" cy="-6" r="2.8"/><circle cx="8" cy="-9" r="2.8"/><circle cx="10" cy="9" r="2.8"/><circle cx="-8" cy="10" r="2.8"/><circle cx="0" cy="0" r="2.8"/></g>
-              </g>
-              <g stroke="#a8b894" stroke-width="2" fill="none" stroke-linecap="round">
-                <path d="M57 86l-10-7m20-9 1-14M221 105l13-6m-10 21 8 8M65 224l-10 8"/>
-              </g>
-              <path d="M105 239q34 8 67 0" stroke="#a7b598" stroke-width="3" stroke-linecap="round" fill="none"/>
-            </svg>
-            <p>there's <em>more ahead</em><br>than you can see right now.</p>
-          </div>
-          <div class="tape"></div>
-          <div class="art-hand scribble">yes, i'm serious. ♡</div>
-        </div>
-        <div class="mini-mark">psst... keep scrolling ↘</div>
+<body data-page="intro">
+<header class="app-header wrap">
+  <a class="brand" href="./index.html" aria-label="Back to the beginning" data-transition><span class="brand-stamp" aria-hidden="true">✿</span> for bella, just because</a>
+  <nav class="chapter-dots" aria-label="Pages in Bella's story"><a href="./index.html" class="current" aria-label="Chapter 1: start" aria-current="page" data-transition></a><a href="./letter.html" class="" aria-label="Chapter 2: your letter"  data-transition></a><a href="./comfort.html" class="" aria-label="Chapter 3: for the hard days"  data-transition></a><a href="./reasons.html" class="" aria-label="Chapter 4: little things"  data-transition></a><a href="./forever.html" class="" aria-label="Chapter 5: one last thing"  data-transition></a></nav>
+  <span class="chapter-label"><strong>01</strong> / 05</span>
+</header>
+<main><section class="page page-intro">
+  <div class="scene wrap intro-grid">
+    <div class="intro-copy">
+      <div class="eyebrow">✿ &nbsp; an unexpected delivery for you</div>
+      <h1>hey, <span>bella.</span><br>this one's<br><em>for you.</em></h1>
+      <p class="lead">I know life's been throwing a lot at you lately. So I made you a tiny corner of the internet. No special occasion. I just wanted you to know a few things.</p>
+      <div class="action-row intro-btn"><a href="./letter.html" class="primary" data-transition>open your little surprise <span aria-hidden="true">↗</span></a></div>
+      <span class="intro-ps">and yes, I made an entire website. don't judge me.</span>
+      <div style="margin-top:23px">
+        <button id="silly-button" type="button" class="sparkle-button" aria-expanded="false" aria-controls="silly-note">press this if you think i'm being dramatic ✧</button>
+        <p id="silly-note" hidden style="max-width:490px;margin:11px auto 0;color:#6a7163;font-size:.87rem">Okay, maybe I am. But you're worth the extra effort. Now stop judging and open the envelope.</p>
       </div>
-      <div class="hero-wave" aria-hidden="true"></div>
-    </section>
-
-    <section class="section letter-section" id="letter" aria-labelledby="letter-title">
-      <div class="container letter-layout">
-        <div class="letter-side">
-          <div class="section-label smallcaps">01 / the important part</div>
-          <h2 id="letter-title">Something I want you to <em>know.</em></h2>
-          <p class="section-lead">Not a speech. Not a lecture. Just a few things I wanted to say and actually mean.</p>
-          <svg class="little-flower" viewBox="0 0 120 120" aria-hidden="true"><g transform="translate(60 55)" fill="#f0d59a" stroke="#c6aa6e"><ellipse cy="-24" rx="12" ry="22"/><ellipse cy="24" rx="12" ry="22"/><ellipse cx="-24" rx="22" ry="12"/><ellipse cx="24" rx="22" ry="12"/><ellipse transform="rotate(45)" cy="-24" rx="12" ry="22"/><ellipse transform="rotate(45)" cy="24" rx="12" ry="22"/><ellipse transform="rotate(-45)" cy="-24" rx="12" ry="22"/><ellipse transform="rotate(-45)" cy="24" rx="12" ry="22"/></g><circle cx="60" cy="55" r="14" fill="#bc9557"/><path d="M60 80v36" stroke="#72936b" stroke-width="3"/></svg>
-        </div>
-        <article class="letter-card" aria-label="A letter for Bella from Andrew">
-          <div class="letter-star" aria-hidden="true">✳</div>
-          <div class="letter-top smallcaps"><span>to: bella</span><span>from: andrew</span></div>
-          <h3>hey you,</h3>
-          <div class="letter-body">
-            <p>I don't know if you always see what other people see in you, so I figured I'd put this somewhere you can come back to.</p>
-            <p><strong>You genuinely have so much to offer.</strong> There's so much good in who you are, and so much potential in who you're becoming. I hope you know that the little things about you matter, too. The way you care. The way you show up. The fact that you keep going, even when things aren't easy.</p>
-            <p>And I know sometimes it's easier to notice everything you haven't done yet than everything you've already made it through. But <strong>your worth isn't something you have to earn</strong> by being perfect, having everything figured out, or always being okay.</p>
-            <p>I see so much in you, Bella. I really do. I hope one day you see it as clearly as I do, because there's a lot for you to be proud of, and a lot ahead of you to look forward to.</p>
-            <p>So if there's ever a day you feel like you're not enough, come back here. You don't have to have all the answers. You don't have to prove anything. <strong>You're already someone worth believing in.</strong></p>
-            <p>And for the record, I'm in your corner. Even if I do make fun of you sometimes. Obviously.</p>
-          </div>
-          <div class="letter-sign">- andrew ✳</div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section reasons" aria-labelledby="reasons-title">
-      <div class="container">
-        <div class="centered">
-          <div class="section-label smallcaps">02 / important facts</div>
-          <h2 id="reasons-title">Three things. No arguing.</h2>
-          <p class="section-lead">You can roll your eyes all you want. I'm still right about these.</p>
-        </div>
-        <div class="reason-grid">
-          <article class="reason-card"><div class="reason-num">01</div><span class="reason-sparkle" aria-hidden="true">✳</span><h3>You don't have to earn your place.</h3><p>You matter on your best days, your messy days, and the days you don't feel particularly impressive. Your value isn't up for debate.</p></article>
-          <article class="reason-card"><div class="reason-num">02</div><span class="reason-sparkle" aria-hidden="true">✳</span><h3>You're capable of more than you think.</h3><p>You don't need to know exactly how everything will work out. Give yourself a chance. I think you'll surprise yourself.</p></article>
-          <article class="reason-card"><div class="reason-num">03</div><span class="reason-sparkle" aria-hidden="true">✳</span><h3>The world is better with you in it.</h3><p>Not because of how much you do for everyone else. Just because there's only one you, and that really is a good thing.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section desk" id="reminders" aria-labelledby="desk-title">
-      <div class="container desk-layout">
-        <div>
-          <div class="section-label smallcaps">03 / the reminder desk</div>
-          <h2 id="desk-title">A little note for whatever today feels like.</h2>
-          <p class="section-lead">Some days you just need someone to tell you what your brain conveniently forgot. Pick a note. Take it with you.</p>
-          <span class="desk-note">no limit. take as many as you need ↗</span>
-        </div>
-        <div class="note-machine" aria-label="Interactive encouragement notes">
-          <div class="machine-label smallcaps"><span>the good-stuff dispenser</span><span id="note-count">01 / 09</span></div>
-          <div class="paper-note" id="paper-note" aria-live="polite" aria-atomic="true">
-            <span class="note-top">for bella, always</span>
-            <div class="note-text" id="note-text">You're allowed to be proud of how far you've come.</div>
-            <span class="note-bottom">A GENTLE REMINDER ✳</span>
-          </div>
-          <div class="note-actions">
-            <button class="btn btn-dark" id="next-note" type="button">give me another <span aria-hidden="true">↻</span></button>
-            <button class="copy-btn" id="copy-note" type="button" aria-label="Copy this reminder">copy this ↗</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section moods" aria-labelledby="moods-title">
-      <div class="container moods-layout">
-        <div>
-          <div class="section-label smallcaps">04 / just in case</div>
-          <h2 id="moods-title">For the not-so-great days.</h2>
-          <p class="section-lead">You don't have to be sunshine and rainbows 24/7. Pick the one that sounds like today.</p>
-          <div class="mood-tabs" role="tablist" aria-label="Choose how you're feeling">
-            <button class="mood-tab" type="button" role="tab" id="tab-doubt" data-mood="doubt" aria-controls="mood-panel" aria-selected="true">doubting myself</button>
-            <button class="mood-tab" type="button" role="tab" id="tab-behind" data-mood="behind" aria-controls="mood-panel" aria-selected="false" tabindex="-1">feeling behind</button>
-            <button class="mood-tab" type="button" role="tab" id="tab-hard" data-mood="hard" aria-controls="mood-panel" aria-selected="false" tabindex="-1">a rough day</button>
-            <button class="mood-tab" type="button" role="tab" id="tab-laugh" data-mood="laugh" aria-controls="mood-panel" aria-selected="false" tabindex="-1">make me laugh</button>
-          </div>
-        </div>
-        <div class="mood-card" id="mood-panel" role="tabpanel" aria-labelledby="tab-doubt" tabindex="0" aria-live="polite">
-          <span class="smallcaps" id="mood-label">read this twice</span>
-          <div class="mood-quote" id="mood-quote">Just because you can't see how much you're growing doesn't mean it isn't happening.</div>
-          <p class="mood-after" id="mood-after">You can be a work in progress and still be someone incredible.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="ending" aria-labelledby="ending-title">
-      <div class="container ending-inner">
-        <div class="smallcaps">one last thing, bella</div>
-        <h2 id="ending-title">I hope you see<br>what <em>I see</em> in you.</h2>
-        <p>And until you do, I'll happily keep reminding you. That's what friends are for. Well, that and giving each other a hard time for absolutely no reason.</p>
-        <button type="button" class="secret-btn" id="secret-button" aria-expanded="false" aria-controls="secret-note">psst. one more thing ↗</button>
-        <div class="secret" id="secret-note" hidden>Yes, I actually made you an entire website. No, you may not let it go to your head. You're still annoying. But you're also genuinely one of a kind, and I'm really glad we're friends. ♡</div>
-      </div>
-    </section>
-  </main>
-  <footer class="footer">made just for <strong>bella</strong> ✳ by andrew. no occasion needed.</footer>
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script>
-    (function(){
-      'use strict';
-      var notes=[
-        "You're allowed to be proud of how far you've come.",
-        "You don't need to have it all figured out to be doing okay.",
-        "Someone else's opinion is not a measure of your worth.",
-        "You bring more good into people's lives than you probably notice.",
-        "Being a little lost doesn't mean you're going nowhere.",
-        "You deserve the same kindness you give everybody else.",
-        "You've already made it through days you didn't think you could.",
-        "You are not behind. You're living your own life, on your own timeline.",
-        "I believe in you. Yes, even when you're being a menace."
-      ];
-      var moods={
-        doubt:{label:"read this twice",quote:"Just because you can't see how much you're growing doesn't mean it isn't happening.",after:"You can be a work in progress and still be someone incredible."},
-        behind:{label:"your timeline is yours",quote:"You're not running late to your own life. There isn't some invisible deadline you're failing.",after:"Take the next little step. That counts, too."},
-        hard:{label:"for today, especially",quote:"A bad day is not a bad life. You don't have to turn today around to deserve a little kindness.",after:"Rest if you need to. Tomorrow gets its own chance."},
-        laugh:{label:"important scientific findings",quote:"According to my extremely thorough research, you are pretty great. Unfortunately, you're also still annoying.",after:"The research is peer-reviewed. By me. No further questions."}
-      };
-      var index=0;
-      var noteText=document.getElementById('note-text');
-      var paper=document.getElementById('paper-note');
-      var count=document.getElementById('note-count');
-      var toast=document.getElementById('toast');
-      var toastTimer;
-      function showToast(message){
-        toast.textContent=message;
-        toast.classList.add('show');
-        clearTimeout(toastTimer);
-        toastTimer=setTimeout(function(){toast.classList.remove('show')},2500);
-      }
-      document.getElementById('next-note').addEventListener('click',function(){
-        index=(index+1)%notes.length;
-        noteText.textContent=notes[index];
-        count.textContent=String(index+1).padStart(2,'0')+' / '+String(notes.length).padStart(2,'0');
-        paper.classList.remove('new');
-        void paper.offsetWidth;
-        paper.classList.add('new');
-      });
-      document.getElementById('copy-note').addEventListener('click',async function(){
-        var text=notes[index]+' — a little reminder for Bella';
-        try{
-          if(navigator.clipboard && window.isSecureContext){
-            await navigator.clipboard.writeText(text);
-          } else {
-            var box=document.createElement('textarea');box.value=text;box.style.position='fixed';box.style.opacity='0';
-            document.body.appendChild(box);box.select();
-            var success=document.execCommand('copy');box.remove();if(!success)throw new Error('copy failed');
-          }
-          showToast('copied. keep that one ♡');
-        }catch(error){showToast('could not copy this one. you can select the note instead.')}
-      });
-      var tabs=Array.prototype.slice.call(document.querySelectorAll('.mood-tab'));
-      function selectMood(tab){
-        var data=moods[tab.dataset.mood];
-        tabs.forEach(function(t){var active=t===tab;t.setAttribute('aria-selected',active?'true':'false');t.tabIndex=active?0:-1});
-        var panel=document.getElementById('mood-panel');
-        document.getElementById('mood-label').textContent=data.label;
-        document.getElementById('mood-quote').textContent=data.quote;
-        document.getElementById('mood-after').textContent=data.after;
-        panel.setAttribute('aria-labelledby',tab.id);
-        panel.classList.remove('swap');void panel.offsetWidth;panel.classList.add('swap');
-      }
-      tabs.forEach(function(tab,i){
-        tab.addEventListener('click',function(){selectMood(tab)});
-        tab.addEventListener('keydown',function(e){
-          if(!['ArrowRight','ArrowLeft','Home','End'].includes(e.key))return;
-          e.preventDefault();
-          var target=e.key==='Home'?0:e.key==='End'?tabs.length-1:(i+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;
-          selectMood(tabs[target]);tabs[target].focus();
-        });
-      });
-      var secretButton=document.getElementById('secret-button');
-      var secret=document.getElementById('secret-note');
-      secretButton.addEventListener('click',function(){
-        var open=secret.hidden;
-        secret.hidden=!open;
-        secretButton.setAttribute('aria-expanded',String(open));
-        secretButton.textContent=open?'okay, enough compliments ↑':'psst. one more thing ↗';
-      });
-    })();
-  </script>
+    </div>
+    <div class="envelope-stage">
+      <span class="sticker" aria-hidden="true">special delivery ♡</span>
+      <span class="sticker sage" aria-hidden="true">100% for you</span>
+      <a class="envelope-hit" href="./letter.html" aria-label="Open Bella's envelope and go to the letter" data-transition>
+        <span class="envelope-sheet"><span class="flower" aria-hidden="true">✿</span><strong>to: bella</strong></span>
+        <span class="envelope-base"></span>
+        <span class="envelope-seal" aria-hidden="true">♡</span>
+        <span class="envelope-tag">tap to open ↑</span>
+      </a>
+    </div>
+    <span class="corner-doodle one" aria-hidden="true">✳</span>
+  </div>
+</section></main>
+<footer class="app-footer wrap"><span>made by andrew, with a lot of thought ♡</span><a href="./index.html" data-transition>back to the start ↗</a></footer>
 </body>
 </html>
