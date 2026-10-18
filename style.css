@@ -3,18 +3,19 @@
 :root{--butter:#fefeca;--cream:#fffdf5;--ink:#293d36;--forest:#28483a;--sage:#9bb7a0;--rose:#f4cbd2;--peach:#f5d5ae;--lilac:#e1d7f5;--muted:#68796e;--outline:#45594a28;--shadow:0 16px 45px #43554419}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;min-height:100vh;background:var(--cream);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--ink);overflow-x:hidden}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;overflow-x:clip}\nbody{margin:0;min-height:100vh;background:var(--cream);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--ink);overflow-x:hidden}
 button,a{font:inherit}button{cursor:pointer}a{color:inherit}
 button:focus-visible,a:focus-visible{outline:3px solid #af6b4e;outline-offset:5px}
 [hidden]{display:none!important}::selection{background:#e3e3ad;color:var(--forest)}
 .wrap{width:min(1060px,calc(100% - 44px));margin-inline:auto}
 .hand{font-family:'Caveat',cursive;font-weight:600}
 .serif{font-family:'DM Serif Display',Georgia,serif;font-weight:400;letter-spacing:-.02em}
-.eyebrow{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.19em;color:#658373}
+.eyebrow{max-width:100%;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.19em;color:#658373}
 .app-header{position:relative;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:80px}
-.brand{display:flex;align-items:center;gap:10px;font-size:.88rem;font-weight:800;text-decoration:none;white-space:nowrap}
-.brand-stamp{display:grid;place-items:center;width:39px;height:39px;background:var(--forest);color:var(--butter);border-radius:50%;font-size:1.55rem}
-.chapter-dots{display:flex;gap:9px;align-items:center;justify-content:center}
+.brand{display:flex;align-items:center;gap:10px;min-width:0;font-size:.88rem;font-weight:800;text-decoration:none;white-space:nowrap}
+.brand-stamp{display:grid;place-items:center;width:39px;height:39px;flex:0 0 39px;background:#fff8e7;border:1px solid #dfd6b7;border-radius:50%;box-shadow:0 3px 8px #314b3420;transform:rotate(-12deg)}
+.brand-stamp svg{display:block;width:34px;height:34px;max-width:100%;max-height:100%;overflow:visible}
+.chapter-dots{display:flex;gap:9px;align-items:center;justify-content:center;flex-shrink:0}
 .chapter-dots a{width:11px;height:11px;background:#cbd8c7;border:1px solid #a6b8a5;border-radius:50%;display:block;transition:transform .2s,background .2s}
 .chapter-dots a:hover{transform:scale(1.3)}
 .chapter-dots a.current{background:var(--forest);border-color:var(--forest);transform:scale(1.1)}
@@ -32,7 +33,7 @@ button:focus-visible,a:focus-visible{outline:3px solid #af6b4e;outline-offset:5p
 .page-soft{background:linear-gradient(140deg,#f3f5e8,#e9f3e7 45%,#f9ede5)}
 .page-reasons{background:linear-gradient(139deg,#fff6e9 0%,#fffbdc 52%,#f1e9f6 100%)}
 .page-finale{background:linear-gradient(150deg,#fefeca,#ffedc9 50%,#efdde1)}
-.scene{width:100%;position:relative;animation:arrive .65s cubic-bezier(.18,.8,.18,1) both}
+.scene{width:100%;min-width:0;position:relative;animation:arrive .65s cubic-bezier(.18,.8,.18,1) both}
 @keyframes arrive{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
 .scene h1{font-family:'DM Serif Display',Georgia,serif;font-weight:400;font-size:clamp(3.1rem,6.8vw,5.8rem);line-height:1.03;letter-spacing:-.04em;margin:17px 0 23px;color:var(--forest)}
 .scene h1 em,.scene h2 em{font-weight:400;color:#7c9679}
@@ -46,7 +47,7 @@ button:focus-visible,a:focus-visible{outline:3px solid #af6b4e;outline-offset:5p
 .mini-btn{padding:10px 15px;border:1px solid #b1bcae;background:#fffcf6;font-size:.85rem;color:var(--forest)}
 .mini-btn:hover{transform:translateY(-2px);background:var(--butter)}
 .action-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:26px}
-.chapter-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:30px}
+.chapter-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:30px}
 .chapter-nav .mini-btn{flex-shrink:0}
 .corner-doodle{position:absolute;z-index:-1;pointer-events:none;color:#b1c6a7;font-family:'Caveat',cursive;font-size:4rem;opacity:.55}
 .corner-doodle.one{top:-35px;right:14%}.corner-doodle.two{bottom:3%;left:0;transform:rotate(20deg)}
@@ -54,10 +55,10 @@ button:focus-visible,a:focus-visible{outline:3px solid #af6b4e;outline-offset:5p
 .sticker.sage{background:#dbe8d2;border-color:#aec7aa;color:#54745b;transform:rotate(9deg)}
 .sticker.lilac{background:#e5d9f4;border-color:#c5b6db;color:#6b5c83;transform:rotate(-7deg)}
 /* The first envelope */
-.intro-grid{display:grid;grid-template-columns:1fr .9fr;gap:35px;align-items:center}
-.intro-copy{position:relative;z-index:1;padding:30px 0}
+.intro-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:35px;align-items:center}
+.intro-copy{min-width:0;max-width:100%;position:relative;z-index:1;padding:30px 0}
 .intro-copy h1{font-size:clamp(4rem,8vw,7.3rem)}
-.intro-copy h1 span{color:#8aa17d}
+.intro-copy h1 span{color:#789375}
 .intro-copy .lead{max-width:490px}
 .intro-ps{display:inline-flex;gap:10px;align-items:center;margin-top:26px;font-family:'Caveat',cursive;font-size:1.5rem;color:#7f8e6c;transform:rotate(-3deg)}
 .envelope-stage{position:relative;min-height:475px;display:flex;align-items:center;justify-content:center}
@@ -67,7 +68,7 @@ button:focus-visible,a:focus-visible{outline:3px solid #af6b4e;outline-offset:5p
 .envelope-hit:hover,.envelope-hit:focus-visible{transform:rotate(0deg) translateY(-12px)}
 .envelope-sheet{position:absolute;z-index:1;left:12%;top:4%;width:76%;height:70%;background:#fffefa;border:2px solid #e5dfca;transform:rotate(-3deg);display:flex;align-items:center;justify-content:flex-start;flex-direction:column;padding:26px 15px 10px;transition:transform .35s;border-radius:3px}
 .envelope-hit:hover .envelope-sheet,.envelope-hit:focus-visible .envelope-sheet{transform:translateY(-35px) rotate(-3deg)}
-.envelope-sheet .flower{font-size:3.65rem;color:#d7a35c;line-height:1.1}
+.envelope-sheet .flower{display:block;width:70px;height:70px;max-width:40%;flex:0 0 auto;line-height:1}.envelope-sheet .flower svg{display:block;width:100%;height:100%}
 .envelope-sheet strong{font-family:'Caveat',cursive;font-weight:600;font-size:2.15rem;color:var(--forest)}
 .envelope-base{position:absolute;z-index:2;left:1%;right:1%;bottom:5%;height:66%;background:#f4c6ae;border:2px solid #d9a78f;border-radius:5px;overflow:hidden}
 .envelope-base:before{content:"";position:absolute;inset:0;background:#f3cbb5;clip-path:polygon(0 0,50% 57%,100% 0)}
@@ -127,7 +128,7 @@ button:focus-visible,a:focus-visible{outline:3px solid #af6b4e;outline-offset:5p
 .flip-card:nth-child(4) .flip-front{background:#e9e3f5}
 .flip-back{background:#fff8d8;transform:rotateY(180deg);border-color:#cdd6ae}
 .flip-face .card-num{font-size:.68rem;letter-spacing:.15em;color:#7c8677;font-weight:800}
-.flip-face .big-icon{font-size:4rem;line-height:1;margin:auto;align-self:center;color:#a5ac77;filter:drop-shadow(0 5px 0 #00000005)}
+.flip-face .big-icon{font-size:3rem;line-height:1;margin:auto;align-self:center;color:#a5ac77;filter:drop-shadow(0 5px 0 #00000005)}.flip-face .big-icon svg{width:74px;height:74px;display:block;max-width:100%}
 .flip-face .flip-title{font-family:'Caveat',cursive;font-size:1.7rem;line-height:1.03;color:#4d6b54;margin-top:auto}
 .flip-face .flip-hint{color:#839286;font-size:.74rem;margin-top:9px}
 .flip-back strong{font-family:'DM Serif Display',Georgia,serif;font-size:1.6rem;font-weight:400;color:#36533e;line-height:1.15}
@@ -175,21 +176,21 @@ body.leaving .scene{animation:leave .38s ease forwards}
  .wrap{width:min(560px,calc(100% - 34px))}
  .app-header{min-height:67px;gap:8px}
  .brand{font-size:.77rem;gap:7px}
- .brand-stamp{width:34px;height:34px;font-size:1.35rem}
+ .brand-stamp{width:34px;height:34px;flex-basis:34px}.brand-stamp svg{width:30px;height:30px}
  .chapter-dots{gap:6px}
  .chapter-dots a{width:9px;height:9px}
  .chapter-label{display:none}
  .page{min-height:calc(100svh - 135px);padding:30px 0 54px}
- .scene h1{font-size:clamp(3.2rem,10.3vw,4.9rem)}
+ .scene h1{font-size:clamp(2.7rem,9vw,4.2rem)}
  .intro-grid,.letter-grid,.comfort-grid,.final-grid{grid-template-columns:1fr}
  .intro-grid{gap:5px}
  .intro-copy{padding:0;text-align:center}
  .intro-copy .lead{margin-inline:auto}
- .intro-copy h1{font-size:clamp(3.9rem,12vw,5.6rem)}
+ .intro-copy h1{font-size:clamp(2.45rem,10.5vw,3.9rem);letter-spacing:-.045em;line-height:1.04;overflow-wrap:normal}
  .intro-ps{margin-top:16px}
  .intro-btn,.action-row{justify-content:center}
  .envelope-stage{min-height:350px}
- .envelope-hit{width:min(77%,345px)}
+ .envelope-hit{width:min(82%,310px)}
  .envelope-stage .sticker{right:1%;top:10px;font-size:1.33rem}
  .envelope-stage .sticker.sage{bottom:0}
  .envelope-sheet strong{font-size:1.8rem}
@@ -213,11 +214,11 @@ body.leaving .scene{animation:leave .38s ease forwards}
  .wrap{width:calc(100% - 28px)}
  .brand{font-size:.7rem}
  .app-header{min-height:62px}
- .intro-copy h1{font-size:3.6rem}
+ .intro-copy h1{font-size:clamp(2.3rem,10.2vw,2.65rem)}
  .envelope-stage{min-height:300px}
  .envelope-hit{width:90%}
  .envelope-stage .sticker{font-size:1.17rem;padding:8px 10px}
- .envelope-sheet .flower{font-size:2.5rem}
+ .envelope-sheet .flower{width:54px;height:54px}
  .envelope-sheet strong{font-size:1.55rem}
  .paper{padding:29px 23px}
  .paper p{font-size:.9rem}
@@ -233,4 +234,25 @@ body.leaving .scene{animation:leave .38s ease forwards}
 }
 @media(prefers-reduced-motion:reduce){
  *,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+
+
+/* iOS mobile browser safeguards: keep editorial text and decorative elements within the viewport. */
+@media(max-width:720px){
+  html,body{max-width:100%;overflow-x:clip}
+  .wrap{max-width:calc(100vw - 34px)}
+  .intro-grid,.intro-copy,.intro-copy h1,.envelope-stage,.letter-heading,.final-copy{min-width:0;max-width:100%}
+  .intro-copy h1{font-size:clamp(2.4rem,10.4vw,3.9rem);word-break:normal}
+  .envelope-sheet .flower svg,.brand-stamp svg{max-width:100%;height:auto}
+  .envelope-stage .sticker{max-width:46%;font-size:1.17rem}
+  .sticker{line-height:1.15}
+  .chapter-nav .primary{max-width:100%}
+  .card-grid>.flip-card{min-width:0}
+}
+@media(max-width:390px){
+  .wrap{max-width:calc(100vw - 28px)}
+  .intro-copy h1{font-size:clamp(2.25rem,10vw,2.65rem)}
+  .envelope-stage{min-height:310px}
+  .envelope-hit{width:min(88%,300px)}
+  .envelope-sheet .flower{width:52px;height:52px}
 }
